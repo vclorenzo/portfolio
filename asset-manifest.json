@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/portfolio/static/js/main.7a790117.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.7a790117.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.bcd5af5a.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.bcd5af5a.js.map",
+    "static/js/2.234399ef.chunk.js": "/portfolio/static/js/2.234399ef.chunk.js",
+    "static/js/2.234399ef.chunk.js.map": "/portfolio/static/js/2.234399ef.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "static/js/2.234399ef.chunk.js.LICENSE.txt": "/portfolio/static/js/2.234399ef.chunk.js.LICENSE.txt",
+    "static/media/AboutImage.0dcaf542.png": "/portfolio/static/media/AboutImage.0dcaf542.png",
+    "static/media/CityLights.b9d2f20c.jpg": "/portfolio/static/media/CityLights.b9d2f20c.jpg",
+    "static/media/blob-scene-haikei.f7f0fcb0.svg": "/portfolio/static/media/blob-scene-haikei.f7f0fcb0.svg",
+    "static/media/bokeh.e6de5b1f.mp4": "/portfolio/static/media/bokeh.e6de5b1f.mp4",
+    "static/media/coming-soon.7a6cb5ae.jpg": "/portfolio/static/media/coming-soon.7a6cb5ae.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bcd5af5a.js",
+    "static/js/2.234399ef.chunk.js",
+    "static/js/main.7a790117.chunk.js"
+  ]
+}

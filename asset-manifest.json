@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.f855e6bc.css",
-    "main.js": "/portfolio/static/js/main.82dd9533.js",
-    "static/js/453.a7d99afe.chunk.js": "/portfolio/static/js/453.a7d99afe.chunk.js",
-    "static/media/logo.svg": "/portfolio/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/portfolio/index.html",
-    "main.f855e6bc.css.map": "/portfolio/static/css/main.f855e6bc.css.map",
-    "main.82dd9533.js.map": "/portfolio/static/js/main.82dd9533.js.map",
-    "453.a7d99afe.chunk.js.map": "/portfolio/static/js/453.a7d99afe.chunk.js.map"
+    "main.css": "./static/css/main.61f2aa1b.css",
+    "main.js": "./static/js/main.ae92ea61.js",
+    "static/media/bokeh.mp4": "./static/media/bokeh.e6de5b1f1fa1ae5bee8a.mp4",
+    "static/media/CityLights.jpg": "./static/media/CityLights.b9d2f20c210a3cbe1d37.jpg",
+    "static/media/Resume_Vanz_Lorenzo.pdf": "./static/media/Resume_Vanz_Lorenzo.24385ac01e218b141cfe.pdf",
+    "static/media/Data-Analytics.jpg": "./static/media/Data-Analytics.8ef1adab1538930b7028.jpg",
+    "static/media/blob-scene-haikei.svg": "./static/media/blob-scene-haikei.f7f0fcb0071fd83eb85477c06549682c.svg",
+    "index.html": "./index.html",
+    "main.61f2aa1b.css.map": "./static/css/main.61f2aa1b.css.map",
+    "main.ae92ea61.js.map": "./static/js/main.ae92ea61.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.82dd9533.js"
+    "static/css/main.61f2aa1b.css",
+    "static/js/main.ae92ea61.js"
   ]
 }

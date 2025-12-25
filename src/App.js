@@ -2,16 +2,21 @@ import Home from './pages/Home.jsx';
 import Viewer from './pages/Viewer.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+	[
+		{
+			path: '/',
+			element: <Home />,
+		},
+		{
+			path: '/profile',
+			element: <Viewer />,
+		},
+	],
 	{
-		path: '/',
-		element: <Home />,
-	},
-	{
-		path: '/profile',
-		element: <Viewer />,
-	},
-]);
+		basename: '/portfolio',
+	}
+);
 
 function App() {
 	return (

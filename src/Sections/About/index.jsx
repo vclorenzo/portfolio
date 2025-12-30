@@ -34,7 +34,7 @@ const About = () => {
 								Backend Development. Continuously learning new technologies.
 							</StyledTextSp>
 						</SpecialTextContainer>
-						<a href={'/profile'} style={{ width: 'fit-content' }}>
+						<a href="#projects" style={{ width: 'fit-content' }}>
 							<StyledDarkButton>View Projects</StyledDarkButton>
 						</a>
 					</StyledTextContainer>

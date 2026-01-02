@@ -36,6 +36,7 @@ export const StyledSplitContainer = styled.div`
 	${(props) => (props.isFullScreen ? '' : `max-width: 1176px;`)}
 	${(props) => (props.isGapped ? `grid-gap: 3rem;` : '')}
   margin: 0 auto;
+	overflow: hidden;
 
 	@media (max-width: 820px) {
 		${(props) =>

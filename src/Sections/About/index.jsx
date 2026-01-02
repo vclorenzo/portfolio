@@ -15,6 +15,8 @@ import {
 import bgImage from '../../assets/svg/blob-scene-haikei.svg';
 import { SpecialTextContainer } from './index.styled.js';
 import { Link } from 'react-router-dom';
+import { StyledLinks } from '../../components/Footer/index.styled.js';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const About = () => {
 	return (
@@ -34,9 +36,37 @@ const About = () => {
 								Backend Development. Continuously learning new technologies.
 							</StyledTextSp>
 						</SpecialTextContainer>
-						<a href="#projects" style={{ width: 'fit-content' }}>
+						{/* <a href="#projects" style={{ width: 'fit-content' }}>
 							<StyledDarkButton>View Projects</StyledDarkButton>
-						</a>
+						</a> */}
+						<StyledLinks color={'dark'} circular={false}>
+							<ul>
+								<a
+									className="test"
+									href="https://www.linkedin.com/in/vanz-czeray-lorenzo-981893189/"
+									target="_blank"
+									rel="noreferrer noopener"
+								>
+									<li>
+										<div>
+											<FaLinkedin />
+										</div>
+									</li>
+								</a>
+								<a
+									className="test"
+									href="https://github.com/vclorenzo"
+									target="_blank"
+									rel="noreferrer noopener"
+								>
+									<li>
+										<div>
+											<FaGithub />
+										</div>
+									</li>
+								</a>
+							</ul>
+						</StyledLinks>
 					</StyledTextContainer>
 				</StyledItemContainer>
 			</StyledSplitContainer>

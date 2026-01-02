@@ -53,7 +53,7 @@ export const StyledLinks = styled.div`
 						props.color === 'dark'
 							? `border: 2px solid var(--dark-color);`
 							: `border: 2px solid var(--light-color);`};
-					border-radius: 50%;
+					${(props) => (props.circular === true ? `border-radius: 50%;` : '')};
 					&:hover {
 						border: 2px solid var(--main-color);
 

@@ -13,7 +13,6 @@ export const StyledCards = styled.div`
 			   background-position: center;`
 			: `background: var(--dark-color);`};
 
-	border-radius: 10px;
 	position: relative;
 `;
 
@@ -23,7 +22,6 @@ export const StyledCardsFx = styled.div`
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	border-radius: 10px;
 	position: absolute;
 
 	// Using ::before for the background hover effect
@@ -32,7 +30,6 @@ export const StyledCardsFx = styled.div`
 		position: absolute;
 		inset: 0;
 		background: rgba(0, 0, 0, 0);
-		border-radius: 10px;
 		transition: background-color 0.3s ease, opacity 0.3s ease;
 	}
 

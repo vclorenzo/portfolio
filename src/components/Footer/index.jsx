@@ -10,7 +10,7 @@ const Footer = () => {
 	return (
 		<>
 			<StyledFooter>
-				<StyledLinks color={'light'}>
+				<StyledLinks color={'light'} circular={true}>
 					<ul>
 						<a
 							className="test"
@@ -39,7 +39,7 @@ const Footer = () => {
 					</ul>
 				</StyledLinks>
 				<StyledCopyrightText>
-					Copyright © 2024. All Rights Reserved
+					Copyright © 2026. All Rights Reserved
 				</StyledCopyrightText>
 			</StyledFooter>
 		</>

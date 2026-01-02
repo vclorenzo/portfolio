@@ -26,7 +26,11 @@ const Intro = () => {
 					<StyledSubtitleText>
 						<Typewriter
 							options={{
-								strings: ['Frontend Development', 'Backend Development'],
+								strings: [
+									'Frontend Development',
+									'Web Development',
+									'Mobile Development',
+								],
 								cursor: '',
 								autoStart: true,
 								loop: true,

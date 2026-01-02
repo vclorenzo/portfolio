@@ -33,10 +33,10 @@ export const StyledMainText = styled(motion.h2)`
 `;
 
 export const StyledSubtitleText = styled.p`
-	font-size: 35px;
+	font-size: 30px;
 	text-align: center;
-	@media (max-width: 320px) {
-		font-size: 25px;
+	@media (max-width: 425px) {
+		font-size: 20px;
 	}
 `;
 export const StyledSubtitleTextSm = styled.p`

@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--main-color: #ffbc00;
+		--base-color: #fffefc;
+		--light-color: #e7e8d1;
+		--primary-color: #f4f4f4;
+		--medium-color: #c2c4cb;
+		--dark-color: #333;
+		--darkless-color: #444;
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		overflow-x: hidden;
+		background: var(--page-bg) no-repeat center fixed;
+		background-size: cover;
+	}
+
+	body {
+		font-family: var(--font-lora), 'Lora', serif;
+		font-weight: 500;
+		font-size: 20px;
+		color: var(--light-color);
+		min-height: 100vh;
+	}
+
+	button {
+		font-family: inherit;
+	}
+
+	a:not(.social-link),
+	a:not(.social-link):visited {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	svg.logo-path {
+		fill: var(--primary-color);
+	}
+}
+
+@layer components {
+	.section-pad {
+		@apply py-[70px];
+	}
+
+	.btn-light {
+		@apply flex h-[60px] w-[200px] items-center justify-center rounded-[5px] border-none bg-primary text-2xl font-medium text-dark transition-colors duration-200;
+	}
+
+	.btn-light:hover {
+		@apply bg-main text-light;
+	}
+
+	.btn-dark {
+		@apply flex h-[60px] w-[200px] items-center justify-center rounded-[5px] border-none bg-dark text-2xl font-medium text-light transition-all duration-200;
+	}
+
+	.btn-dark:hover {
+		@apply bg-transparent text-dark outline outline-[3px] outline-dark;
+	}
+
+	.btn-form {
+		@apply flex h-[60px] w-full cursor-pointer items-center justify-center rounded-[5px] border-none bg-dark text-2xl font-medium text-light transition-colors duration-200;
+	}
+
+	.btn-form:hover {
+		@apply bg-darkless;
+	}
+
+	.social-link {
+		@apply flex h-12 w-12 items-center justify-center rounded-full text-2xl text-main transition-transform duration-200 hover:scale-110;
+	}
+
+	.social-link--dark,
+	.social-link--dark:visited {
+		@apply text-dark;
+	}
+
+	.form-field {
+		@apply w-full rounded-md border border-medium/40 bg-primary/95 px-4 py-3 text-dark outline-none transition-shadow focus:border-main focus:ring-2 focus:ring-main/30;
+	}
+
+	.glass-panel {
+		@apply rounded-2xl border border-light/10 bg-dark/40 p-6 backdrop-blur-md;
+	}
+}
+
+/* Swiper — keep gold accent from original theme */
+.swiper-button-next,
+.swiper-button-prev {
+	color: var(--main-color) !important;
+	width: 50px;
+	height: 50px;
+}
+
+.swiper-pagination-bullet-active {
+	background: var(--main-color) !important;
+}

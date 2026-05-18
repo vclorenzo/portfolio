@@ -1,0 +1,29 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "workspaces": [
+    "cms",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n client -c blue \"npm run dev -w client\"",
+    "dev:client": "npm run dev -w client",
+    "build": "npm run build -w client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vclorenzo/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vclorenzo/portfolio/issues"
+  },
+  "homepage": "https://github.com/vclorenzo/portfolio#readme",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

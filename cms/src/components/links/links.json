@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_links_links",
+  "info": {
+    "displayName": "Links"
+  },
+  "options": {},
+  "attributes": {
+    "LinkText": {
+      "type": "string"
+    },
+    "AnchorTag": {
+      "type": "string"
+    },
+    "URL": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

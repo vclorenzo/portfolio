@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_page_components_dynamic_sections",
+  "info": {
+    "displayName": "DynamicSection",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "Visible": {
+      "type": "boolean"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "SectionContent": {
+      "type": "text"
+    },
+    "ButtonText": {
+      "type": "string"
+    },
+    "LottieFile": {
+      "type": "json"
+    },
+    "Socials": {
+      "type": "component",
+      "component": "links.links",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

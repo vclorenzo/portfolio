@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_page_components_showcases",
+  "info": {
+    "displayName": "Showcase",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "FeatureTitle": {
+      "type": "string"
+    },
+    "FeatureSubtitle": {
+      "type": "string"
+    },
+    "FeatureLink": {
+      "type": "string"
+    },
+    "Chips": {
+      "type": "component",
+      "component": "collections.chips",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

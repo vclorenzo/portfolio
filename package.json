@@ -7,7 +7,7 @@
     "client"
   ],
   "scripts": {
-    "dev": "concurrently -n client -c blue \"npm run dev -w client\"",
+    "dev": "concurrently -n client,cms -c blue,green \"npm run dev -w client\" \"npm run dev -w cms\"",
     "dev:client": "npm run dev -w client",
     "build": "npm run build -w client"
   },

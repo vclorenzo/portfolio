@@ -13,7 +13,10 @@
         "others"
       ]
     },
-    "name": {
+    "label": {
+      "type": "string"
+    },
+    "iconKey": {
       "type": "string"
     }
   },

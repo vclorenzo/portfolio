@@ -7,12 +7,18 @@ import Projects from "@/sections/Projects";
 import Skills from "@/sections/Skills";
 import { getPortfolioContent } from "@/lib/static-assets/get-portfolio-content";
 import { useHomepage } from "@/hooks/strapi/useHomepage";
+import { useEffect } from "react";
 
-export default function HomePage() {
+export default async function HomePage() {
   const { site, skills, projects, skillCategories } = getPortfolioContent();
 
-  const data = useHomepage();
-  console.log("TITE", data);
+  async function fetchHomepage() {
+    return await useHomepage();
+  }
+
+  const data = await fetchHomepage();
+  console.log("DATA", data);
+
   return (
     <>
       <main>

@@ -1,13 +1,13 @@
 {
-  "collectionName": "components_blocks_showcases",
+  "collectionName": "components_blocks_skills",
   "info": {
-    "displayName": "Showcase"
+    "displayName": "Skills"
   },
   "options": {},
   "attributes": {
-    "category": {
+    "tabs": {
       "type": "component",
-      "component": "elements.collection",
+      "component": "elements.category",
       "repeatable": true
     },
     "skills": {

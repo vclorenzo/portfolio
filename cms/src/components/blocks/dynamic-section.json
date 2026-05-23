@@ -5,12 +5,20 @@
   },
   "options": {},
   "attributes": {
-    "image": {
+    "bgImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
         "images",
+        "files",
         "videos"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
       ]
     },
     "imagePosition": {

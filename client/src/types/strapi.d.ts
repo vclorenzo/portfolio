@@ -84,14 +84,14 @@ export type DynamicSectionBlock = {
   __component: "blocks.dynamic-section";
 };
 
-export type ShowcaseBlock = {
+export type SkillsBlock = {
   id: number;
   category: NamedEntity[];
   skills: Skill[];
-  __component: "blocks.showcase";
+  __component: "blocks.skills";
 };
 
-export type Block = HeroSectionBlock | DynamicSectionBlock | ShowcaseBlock;
+export type Block = HeroSectionBlock | DynamicSectionBlock | SkillsBlock;
 
 export type HomePage = {
   id: number;

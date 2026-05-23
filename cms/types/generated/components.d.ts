@@ -6,9 +6,10 @@ export interface BlocksDynamicSection extends Struct.ComponentSchema {
     displayName: 'Dynamic Section';
   };
   attributes: {
+    bgImage: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     callToAction: Schema.Attribute.Component<'elements.actions', false>;
     content: Schema.Attribute.RichText;
-    image: Schema.Attribute.Media<'images' | 'videos'>;
+    image: Schema.Attribute.Media<'images'>;
     imagePosition: Schema.Attribute.Enumeration<['left', 'right']>;
     socials: Schema.Attribute.Component<'elements.link', true>;
     title: Schema.Attribute.String;
@@ -21,23 +22,22 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
     displayName: 'Hero Section';
   };
   attributes: {
+    bgImage: Schema.Attribute.Media<'images' | 'videos'>;
     callToAction: Schema.Attribute.Component<'elements.actions', false>;
     heading: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'videos'>;
-    logo: Schema.Attribute.Component<'elements.logo', false>;
     specializations: Schema.Attribute.Component<'elements.collection', true>;
     subHeading: Schema.Attribute.String;
   };
 }
 
-export interface BlocksShowcase extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_showcases';
+export interface BlocksSkills extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_skills';
   info: {
-    displayName: 'Showcase';
+    displayName: 'Skills';
   };
   attributes: {
-    category: Schema.Attribute.Component<'elements.collection', true>;
     skills: Schema.Attribute.Component<'elements.category', true>;
+    tabs: Schema.Attribute.Component<'elements.category', true>;
   };
 }
 
@@ -58,7 +58,8 @@ export interface ElementsCategory extends Struct.ComponentSchema {
     displayName: 'Category';
   };
   attributes: {
-    name: Schema.Attribute.String;
+    iconKey: Schema.Attribute.String;
+    label: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['frontend', 'backend', 'others']>;
   };
 }
@@ -101,7 +102,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'blocks.dynamic-section': BlocksDynamicSection;
       'blocks.hero-section': BlocksHeroSection;
-      'blocks.showcase': BlocksShowcase;
+      'blocks.skills': BlocksSkills;
       'elements.actions': ElementsActions;
       'elements.category': ElementsCategory;
       'elements.collection': ElementsCollection;

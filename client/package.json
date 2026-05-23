@@ -16,6 +16,7 @@
     "framer-motion": "^11.18.2",
     "lottie-react": "^2.4.1",
     "next": "^15.3.2",
+    "qs": "^6.15.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",

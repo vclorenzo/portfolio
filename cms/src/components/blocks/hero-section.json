@@ -5,12 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "logo": {
-      "type": "component",
-      "component": "elements.logo",
-      "repeatable": false
-    },
-    "image": {
+    "bgImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

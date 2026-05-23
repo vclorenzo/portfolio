@@ -5,10 +5,15 @@
   },
   "options": {},
   "attributes": {
-    "button": {
-      "type": "component",
-      "component": "elements.link",
-      "repeatable": false
+    "text": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
     },
     "theme": {
       "type": "enumeration",

@@ -1,27 +1,25 @@
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
-import About from "@/sections/About";
+import About from "@/components/strapi/DynamicSection";
 import Contact from "@/sections/Contact";
-import Intro from "@/sections/Intro";
+import Intro from "@/components/strapi/HeroSection";
 import Projects from "@/sections/Projects";
 import Skills from "@/sections/Skills";
 import { getPortfolioContent } from "@/lib/static-assets/get-portfolio-content";
 import { useHomepage } from "@/hooks/strapi/useHomepage";
+import { BlockBuilder } from "@/components/strapi/BlockBuilder";
 
 export default async function HomePage() {
   const { site, skills, projects, skillCategories } = getPortfolioContent();
 
   const data = await useHomepage();
+  const blocks = data.data?.blocks || [];
   console.log("DATA", data);
 
   return (
     <>
       <main>
-        <Intro site={site} />
-        <About site={site} />
-        <Skills skills={skills} skillCategories={skillCategories} />
-        <Projects projects={projects} />
-        <Contact />
+        <BlockBuilder blocks={blocks} />
       </main>
     </>
   );

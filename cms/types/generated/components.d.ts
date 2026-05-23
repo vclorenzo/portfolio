@@ -47,7 +47,9 @@ export interface ElementsActions extends Struct.ComponentSchema {
     displayName: 'Actions';
   };
   attributes: {
-    button: Schema.Attribute.Component<'elements.link', false>;
+    href: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    text: Schema.Attribute.String;
     theme: Schema.Attribute.Enumeration<['light', 'dark']>;
   };
 }

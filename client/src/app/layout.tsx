@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { Lora, Roboto_Condensed } from "next/font/google";
 import cityLights from "@/assets/CityLights.jpg";
-import { basePath } from "@/lib/basePath";
+
 import "./globals.css";
+import { BASE_PATH } from "@/constants/basepath";
+
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { getPortfolioContent } from "@/lib/static-assets/get-portfolio-content";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -23,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: `Portfolio | Vanz Lorenzo`,
     description: "vanz's portfolio",
     icons: {
-      icon: `${basePath}/favicon.ico`,
+      icon: `${BASE_PATH}/favicon.ico`,
     },
   };
 }
@@ -37,13 +42,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { site } = getPortfolioContent();
   return (
     <html
       lang="en"
       className={`${lora.variable} ${robotoCondensed.variable}`}
       style={{ "--page-bg": `url(${cityLights.src})` } as React.CSSProperties}
     >
-      <body>{children}</body>
+      <body>
+        <Header site={site} />
+        {children}
+        <Footer site={site} />
+      </body>
     </html>
   );
 }

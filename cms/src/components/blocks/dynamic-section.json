@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_blocks_dynamic_sections",
+  "info": {
+    "displayName": "Dynamic Section"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "socials": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
+    },
+    "callToAction": {
+      "type": "component",
+      "component": "elements.actions",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

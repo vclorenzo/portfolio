@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_elements_categories",
+  "info": {
+    "displayName": "Category"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "frontend",
+        "backend",
+        "others"
+      ]
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

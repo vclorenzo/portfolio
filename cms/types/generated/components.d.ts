@@ -1,105 +1,112 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface CollectionsChips extends Struct.ComponentSchema {
-  collectionName: 'components_collections_chips';
+export interface BlocksDynamicSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_dynamic_sections';
   info: {
-    displayName: 'Chips';
+    displayName: 'Dynamic Section';
   };
   attributes: {
-    Name: Schema.Attribute.String;
+    callToAction: Schema.Attribute.Component<'elements.actions', false>;
+    content: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    imagePosition: Schema.Attribute.Enumeration<['left', 'right']>;
+    socials: Schema.Attribute.Component<'elements.link', true>;
+    title: Schema.Attribute.String;
   };
 }
 
-export interface CollectionsCollections extends Struct.ComponentSchema {
-  collectionName: 'components_collections_collections';
+export interface BlocksHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_hero_sections';
+  info: {
+    displayName: 'Hero Section';
+  };
+  attributes: {
+    callToAction: Schema.Attribute.Component<'elements.actions', false>;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    logo: Schema.Attribute.Component<'elements.logo', false>;
+    specializations: Schema.Attribute.Component<'elements.collection', true>;
+    subHeading: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksShowcase extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_showcases';
+  info: {
+    displayName: 'Showcase';
+  };
+  attributes: {
+    category: Schema.Attribute.Component<'elements.collection', true>;
+    skills: Schema.Attribute.Component<'elements.category', true>;
+  };
+}
+
+export interface ElementsActions extends Struct.ComponentSchema {
+  collectionName: 'components_elements_actions';
+  info: {
+    displayName: 'Actions';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'elements.link', false>;
+    theme: Schema.Attribute.Enumeration<['light', 'dark']>;
+  };
+}
+
+export interface ElementsCategory extends Struct.ComponentSchema {
+  collectionName: 'components_elements_categories';
   info: {
     displayName: 'Category';
   };
   attributes: {
-    Name: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['frontend', 'backend', 'others']>;
   };
 }
 
-export interface IconIcon extends Struct.ComponentSchema {
-  collectionName: 'components_icon_icons';
+export interface ElementsCollection extends Struct.ComponentSchema {
+  collectionName: 'components_elements_collections';
   info: {
-    displayName: 'Icon';
+    displayName: 'Collection';
   };
   attributes: {
-    Category: Schema.Attribute.Enumeration<['frontend', 'backend', 'others']>;
-    IconName: Schema.Attribute.String;
+    name: Schema.Attribute.String;
   };
 }
 
-export interface LinksLinks extends Struct.ComponentSchema {
-  collectionName: 'components_links_links';
+export interface ElementsLink extends Struct.ComponentSchema {
+  collectionName: 'components_elements_links';
   info: {
-    displayName: 'Links';
+    displayName: 'Link';
   };
   attributes: {
-    AnchorTag: Schema.Attribute.String;
-    LinkText: Schema.Attribute.String;
-    URL: Schema.Attribute.String;
+    href: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    text: Schema.Attribute.String;
   };
 }
 
-export interface PageComponentsDynamicSection extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_dynamic_sections';
+export interface ElementsLogo extends Struct.ComponentSchema {
+  collectionName: 'components_elements_logos';
   info: {
-    displayName: 'DynamicSection';
-    icon: 'stack';
+    displayName: 'Logo';
   };
   attributes: {
-    ButtonText: Schema.Attribute.String;
-    LottieFile: Schema.Attribute.JSON;
-    SectionContent: Schema.Attribute.Text;
-    Socials: Schema.Attribute.Component<'links.links', true>;
-    Subtitle: Schema.Attribute.String;
-    Title: Schema.Attribute.String;
-    Visible: Schema.Attribute.Boolean;
-  };
-}
-
-export interface PageComponentsShowcase extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_showcases';
-  info: {
-    displayName: 'Showcase';
-    icon: 'book';
-  };
-  attributes: {
-    Chips: Schema.Attribute.Component<'collections.chips', true>;
-    FeatureLink: Schema.Attribute.String;
-    FeatureSubtitle: Schema.Attribute.String;
-    FeatureTitle: Schema.Attribute.String;
-    Images: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    Title: Schema.Attribute.String;
-  };
-}
-
-export interface PageComponentsTabs extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_tabs';
-  info: {
-    displayName: 'Tabs';
-  };
-  attributes: {
-    Category: Schema.Attribute.Component<'collections.collections', true>;
-    Skills: Schema.Attribute.Component<'icon.icon', true>;
+    image: Schema.Attribute.Media<'images'>;
+    logoText: Schema.Attribute.String;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'collections.chips': CollectionsChips;
-      'collections.collections': CollectionsCollections;
-      'icon.icon': IconIcon;
-      'links.links': LinksLinks;
-      'page-components.dynamic-section': PageComponentsDynamicSection;
-      'page-components.showcase': PageComponentsShowcase;
-      'page-components.tabs': PageComponentsTabs;
+      'blocks.dynamic-section': BlocksDynamicSection;
+      'blocks.hero-section': BlocksHeroSection;
+      'blocks.showcase': BlocksShowcase;
+      'elements.actions': ElementsActions;
+      'elements.category': ElementsCategory;
+      'elements.collection': ElementsCollection;
+      'elements.link': ElementsLink;
+      'elements.logo': ElementsLogo;
     }
   }
 }

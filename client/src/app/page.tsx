@@ -1,26 +1,27 @@
-import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
-import About from '@/Sections/About';
-import Contact from '@/Sections/Contact';
-import Intro from '@/Sections/Intro';
-import Projects from '@/Sections/Projects';
-import Skills from '@/Sections/Skills';
-import { getPortfolioContent } from '@/lib/get-portfolio-content';
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import About from "@/sections/About";
+import Contact from "@/sections/Contact";
+import Intro from "@/sections/Intro";
+import Projects from "@/sections/Projects";
+import Skills from "@/sections/Skills";
+import { getPortfolioContent } from "@/lib/static-assets/get-portfolio-content";
+import { useHomepage } from "@/hooks/strapi/useHomepage";
 
 export default function HomePage() {
-	const { site, skills, projects, skillCategories } = getPortfolioContent();
+  const { site, skills, projects, skillCategories } = getPortfolioContent();
 
-	return (
-		<>
-			<Header site={site} />
-			<main>
-				<Intro site={site} />
-				<About site={site} />
-				<Skills skills={skills} skillCategories={skillCategories} />
-				<Projects projects={projects} />
-				<Contact />
-			</main>
-			<Footer site={site} />
-		</>
-	);
+  const data = useHomepage();
+  console.log("TITE", data);
+  return (
+    <>
+      <main>
+        <Intro site={site} />
+        <About site={site} />
+        <Skills skills={skills} skillCategories={skillCategories} />
+        <Projects projects={projects} />
+        <Contact />
+      </main>
+    </>
+  );
 }

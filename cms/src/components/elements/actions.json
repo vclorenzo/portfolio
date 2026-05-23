@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_elements_actions",
+  "info": {
+    "displayName": "Actions"
+  },
+  "options": {},
+  "attributes": {
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "light",
+        "dark"
+      ]
+    }
+  },
+  "config": {}
+}

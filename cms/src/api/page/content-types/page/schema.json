@@ -10,26 +10,5 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {
-    "SEOTitle": {
-      "type": "string"
-    },
-    "SEODescription": {
-      "type": "string"
-    },
-    "PageName": {
-      "type": "string"
-    },
-    "Slug": {
-      "type": "string"
-    },
-    "pageBuilder": {
-      "type": "dynamiczone",
-      "components": [
-        "page-components.showcase",
-        "page-components.dynamic-section",
-        "page-components.tabs"
-      ]
-    }
-  }
+  "attributes": {}
 }

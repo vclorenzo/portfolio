@@ -1,12 +1,23 @@
 import { fetchAPI } from "@/lib/api/fetch-api";
 import { getStrapiURL } from "@/lib/api/get-strapi-url";
+import qs from "qs";
+
+// to update query params, use qs.stringify
+const homePageQuery = qs.stringify({
+  populate: {
+    blocks: {
+      populate: "*",
+    },
+  },
+});
 
 export async function useHomepage() {
-  const path = "/api/home-page?populate[blocks][populate]=*";
+  const path = "/api/home-page";
   const BASE_URL = getStrapiURL();
 
-  const url = `${BASE_URL}${path}`;
-  const response = await fetchAPI(url, {
+  const url = new URL(path, BASE_URL);
+  url.search = homePageQuery;
+  const response = await fetchAPI(url.href, {
     method: "GET",
   });
   return response;

@@ -6,6 +6,15 @@ const nextConfig: NextConfig = {
   basePath: "/portfolio",
   output: "export",
   trailingSlash: true,
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/portfolio",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     unoptimized: true,
     dangerouslyAllowSVG: true,

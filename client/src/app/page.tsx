@@ -4,7 +4,7 @@ import About from "@/components/strapi/DynamicSection";
 import Contact from "@/sections/Contact";
 import Intro from "@/components/strapi/HeroSection";
 import Projects from "@/sections/Projects";
-import Skills from "@/sections/Skills";
+import Skills from "@/components/strapi/Skills";
 import { getPortfolioContent } from "@/lib/static-assets/get-portfolio-content";
 import { useHomepage } from "@/hooks/strapi/useHomepage";
 import { BlockBuilder } from "@/components/strapi/BlockBuilder";

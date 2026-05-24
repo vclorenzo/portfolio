@@ -38,6 +38,7 @@ export interface BlocksSkills extends Struct.ComponentSchema {
   attributes: {
     skills: Schema.Attribute.Component<'elements.category', true>;
     tabs: Schema.Attribute.Component<'elements.category', true>;
+    title: Schema.Attribute.String;
   };
 }
 

@@ -1,8 +1,5 @@
-import { BlockBuilder } from "@/components/strapi/BlockBuilder";
-import {
-  fetchAllPageSlugs,
-  usePageBySlug,
-} from "@/hooks/strapi/usePageBySlug";
+import { BlockBuilder } from "@/components/strapi/custom/BlockBuilder";
+import { fetchAllPageSlugs, usePageBySlug } from "@/hooks/strapi/usePageBySlug";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {

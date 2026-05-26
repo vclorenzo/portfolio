@@ -14,6 +14,8 @@ export interface ImageProps {
   documentId: string;
   url: string;
   alternativeText: string;
+  name?: string;
+  caption?: string;
 }
 
 export interface LogoProps {

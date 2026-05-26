@@ -5,6 +5,9 @@
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
     "images": {
       "type": "media",
       "multiple": true,
@@ -26,10 +29,10 @@
     "description": {
       "type": "text"
     },
-    "pages": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::page.page"
+    "imageURL": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
     }
   },
   "config": {}

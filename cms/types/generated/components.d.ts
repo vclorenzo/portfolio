@@ -54,9 +54,10 @@ export interface BlocksShowcase extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    imageURL: Schema.Attribute.Component<'elements.link', true>;
     name: Schema.Attribute.String;
-    pages: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
     tags: Schema.Attribute.Component<'elements.collection', true>;
+    title: Schema.Attribute.String;
   };
 }
 

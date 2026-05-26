@@ -1,8 +1,9 @@
-import HeroSection from "./HeroSection";
-import DynamicSection from "./DynamicSection";
+import HeroSection from "../blocks/HeroSection";
+import DynamicSection from "../blocks/DynamicSection";
+import Skills from "../Skills";
+import Contact from "../blocks/Contact";
+import Projects from "../blocks/Projects";
 import { Block } from "@/types/strapi";
-import Skills from "./Skills";
-import Contact from "../Contact";
 
 function blockBuilder(block: Block, index: number) {
   switch (block.__component) {
@@ -12,6 +13,8 @@ function blockBuilder(block: Block, index: number) {
       return <DynamicSection {...block} key={index} />;
     case "blocks.skills":
       return <Skills {...block} key={index} />;
+    case "blocks.showcase":
+      return <Projects {...block} key={index} />;
     case "blocks.contact-form":
       return <Contact {...block} key={index} />;
     // case "blocks.heading":

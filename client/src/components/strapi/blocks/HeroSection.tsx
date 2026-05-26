@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { HeroSectionProps } from "@/types/strapi";
-import { getStrapiMedia } from "@/components/StrapiImage";
+import { getStrapiMedia } from "@/components/strapi/custom/StrapiImage";
 import Link from "next/link";
 
 // type IntroProps = {

@@ -1,6 +1,6 @@
-import { BlockBuilder } from "@/components/strapi/BlockBuilder";
+import { BlockBuilder } from "@/components/strapi/custom/BlockBuilder";
 import { useHomepage } from "@/hooks/strapi/useHomepage";
-import Contact from "@/components/Contact";
+import Contact from "@/components/strapi/blocks/Contact";
 
 export default async function HomePage() {
   const data = await useHomepage();

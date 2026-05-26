@@ -9,7 +9,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import SocialLinks from "@/components/SocialLinks";
 import type { Site } from "@/types/content";
 import { DynamicSectionProps } from "@/types/strapi";
-import { StrapiImage } from "../StrapiImage";
+import { StrapiImage } from "../custom/StrapiImage";
 
 // type AboutProps = {
 //   site: Site;

@@ -7,7 +7,7 @@ import Logo from "@/components/Logo";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 import type { HeaderProps } from "@/types/strapi";
-import { StrapiImage } from "../StrapiImage";
+import { StrapiImage } from "../strapi/custom/StrapiImage";
 
 const headerSections = ["intro", "about", "skills", "projects", "contact"];
 

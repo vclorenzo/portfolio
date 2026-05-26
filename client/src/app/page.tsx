@@ -10,7 +10,6 @@ export default async function HomePage() {
     <>
       <main>
         <BlockBuilder blocks={blocks} />
-        <Contact />
       </main>
     </>
   );

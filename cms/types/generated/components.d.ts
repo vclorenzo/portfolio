@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksContactForm extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_contact_forms';
+  info: {
+    displayName: 'ContactForm';
+  };
+  attributes: {
+    buttonName: Schema.Attribute.String;
+    formFields: Schema.Attribute.Component<'elements.fields', true>;
+    greeting: Schema.Attribute.String;
+    message: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksDynamicSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_dynamic_sections';
   info: {
@@ -27,6 +40,23 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
     heading: Schema.Attribute.String;
     specializations: Schema.Attribute.Component<'elements.collection', true>;
     subHeading: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksShowcase extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_showcases';
+  info: {
+    displayName: 'Showcase';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    name: Schema.Attribute.String;
+    pages: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
+    tags: Schema.Attribute.Component<'elements.collection', true>;
   };
 }
 
@@ -74,6 +104,17 @@ export interface ElementsCollection extends Struct.ComponentSchema {
   };
   attributes: {
     name: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsFields extends Struct.ComponentSchema {
+  collectionName: 'components_elements_fields';
+  info: {
+    displayName: 'Fields';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
   };
 }
 
@@ -127,12 +168,15 @@ export interface LayoutHeader extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.contact-form': BlocksContactForm;
       'blocks.dynamic-section': BlocksDynamicSection;
       'blocks.hero-section': BlocksHeroSection;
+      'blocks.showcase': BlocksShowcase;
       'blocks.skills': BlocksSkills;
       'elements.actions': ElementsActions;
       'elements.category': ElementsCategory;
       'elements.collection': ElementsCollection;
+      'elements.fields': ElementsFields;
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
       'layout.footer': LayoutFooter;

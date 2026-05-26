@@ -22,7 +22,9 @@
       "components": [
         "blocks.hero-section",
         "blocks.dynamic-section",
-        "blocks.skills"
+        "blocks.skills",
+        "blocks.showcase",
+        "blocks.contact-form"
       ]
     }
   }

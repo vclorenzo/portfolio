@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_blocks_showcases",
+  "info": {
+    "displayName": "Showcase"
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "tags": {
+      "type": "component",
+      "component": "elements.collection",
+      "repeatable": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "pages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page.page"
+    }
+  },
+  "config": {}
+}

@@ -7,6 +7,16 @@ import mailAnimation from "@/assets/mail.json";
 import FadeIn from "@/components/motion/FadeIn";
 import { sendContactForm } from "@/hooks/strapi/forms/actions";
 import { contactSchema } from "@/schema/zodSchema";
+import { ContactFormProps } from "@/types/strapi";
+import { FiLoader } from "react-icons/fi";
+
+type ContactForm = {
+  id: string;
+  greeting: string;
+  message: string;
+  buttonName: string;
+  formFields: ContactFormProps[];
+};
 
 function getContactFormData(formData: FormData) {
   return {
@@ -49,7 +59,12 @@ function FieldErrors({ id, messages }: { id: string; messages?: string[] }) {
   );
 }
 
-export default function Contact() {
+export default function Contact({
+  greeting,
+  message,
+  buttonName,
+  formFields,
+}: ContactForm) {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [formState, setFormState] = useState(INITIAL_STATE);
@@ -123,6 +138,7 @@ export default function Contact() {
       });
     } finally {
       setLoading(false);
+      setFormState(INITIAL_STATE);
     }
   };
 
@@ -130,13 +146,8 @@ export default function Contact() {
     <section id="contact" className="section-pad min-h-[724px] bg-dark">
       <div className="mx-auto grid max-w-content items-center gap-12 px-5 lg:grid-cols-2">
         <FadeIn className="flex flex-col gap-12 p-5">
-          <h2 className="text-5xl text-light md:text-[60px]">
-            Let&apos;s Connect
-          </h2>
-          <p className="text-xl text-light/90 md:text-[25px]">
-            If you have questions or just want to say hi, feel free to message
-            me.
-          </p>
+          <h2 className="text-5xl text-light md:text-[60px]">{greeting}</h2>
+          <p className="text-xl text-light/90 md:text-[25px]">{message}</p>
 
           <form
             ref={formRef}
@@ -149,13 +160,13 @@ export default function Contact() {
                 htmlFor="name"
                 className="mb-1 block font-condensed text-sm text-light"
               >
-                Full Name
+                {formFields[0].label}
               </label>
               <input
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Enter Full Name"
+                placeholder={formFields[0].placeholder}
                 className="form-field"
                 aria-invalid={Boolean(formState.zodErrors?.name)}
                 aria-describedby={
@@ -172,13 +183,13 @@ export default function Contact() {
                 htmlFor="email"
                 className="mb-1 block font-condensed text-sm text-light"
               >
-                Email
+                {formFields[1].label}
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Enter Email"
+                placeholder={formFields[1].placeholder}
                 className="form-field"
                 aria-invalid={Boolean(formState.zodErrors?.email)}
                 aria-describedby={
@@ -195,13 +206,13 @@ export default function Contact() {
                 htmlFor="subject"
                 className="mb-1 block font-condensed text-sm text-light"
               >
-                Subject
+                {formFields[2].label}
               </label>
               <input
                 id="subject"
                 name="subject"
                 type="text"
-                placeholder="Enter Subject"
+                placeholder={formFields[2].label}
                 className="form-field"
                 aria-invalid={Boolean(formState.zodErrors?.subject)}
                 aria-describedby={
@@ -218,13 +229,13 @@ export default function Contact() {
                 htmlFor="message"
                 className="mb-1 block font-condensed text-sm text-light"
               >
-                Message
+                {formFields[3].label}
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows={5}
-                placeholder="Enter Message"
+                placeholder={formFields[3].placeholder}
                 className="form-field resize-y"
                 aria-invalid={Boolean(formState.zodErrors?.message)}
                 aria-describedby={
@@ -252,7 +263,14 @@ export default function Contact() {
             )}
 
             <button type="submit" className="btn-form" disabled={loading}>
-              {loading ? "Sending..." : "Submit"}
+              {loading ? (
+                <>
+                  {buttonName}
+                  <FiLoader className="animate-spin" />
+                </>
+              ) : (
+                buttonName
+              )}
             </button>
           </form>
         </FadeIn>

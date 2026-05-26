@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_fields",
+  "info": {
+    "displayName": "Fields"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

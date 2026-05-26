@@ -35,6 +35,11 @@ export interface FooterProps {
   socials: LinkProps[];
   copyright: string;
 }
+export interface ContactFormProps {
+  id: string;
+  label: string;
+  placeholder: string;
+}
 
 // export interface GlobalResponse {
 //   data: {

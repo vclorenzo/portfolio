@@ -1,4 +1,4 @@
-import type { HomePageResponse } from "@/types/strapi";
+// import type { HomePageResponse } from "@/types/strapi";
 
 const HOME_PAGE_QUERY = "/api/home-page?populate[blocks][populate]=*";
 
@@ -6,7 +6,7 @@ function getStrapiBaseUrl(): string {
   return process.env.STRAPI_URL ?? "http://localhost:1337";
 }
 
-export async function fetchHomePageContent(): Promise<HomePageResponse> {
+export async function fetchHomePageContent() {
   const response = await fetch(`${getStrapiBaseUrl()}${HOME_PAGE_QUERY}`);
 
   if (!response.ok) {
@@ -15,5 +15,5 @@ export async function fetchHomePageContent(): Promise<HomePageResponse> {
     );
   }
 
-  return (await response.json()) as HomePageResponse;
+  return await response.json();
 }

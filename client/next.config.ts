@@ -1,20 +1,23 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 
+const isProdBuild = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname, ".."),
   basePath: "/portfolio",
-  output: "export",
+  // Static export only for production builds. In dev, dynamic CMS slugs work on demand.
+  ...(isProdBuild ? { output: "export" as const } : {}),
   trailingSlash: true,
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/portfolio",
-        permanent: true,
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/",
+  //       destination: "/portfolio",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
   images: {
     unoptimized: true,
     dangerouslyAllowSVG: true,

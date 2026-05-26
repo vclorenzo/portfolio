@@ -7,7 +7,7 @@ import { BASE_PATH } from "@/constants/basepath";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { getPortfolioContent } from "@/lib/static-assets/get-portfolio-content";
+import { useGlobal } from "@/hooks/strapi/global/useGlobal";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -37,12 +37,15 @@ export const viewport = {
   themeColor: "#333333",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { site } = getPortfolioContent();
+  const { data } = await useGlobal();
+  const header = data?.header;
+  const footer = data?.footer;
+
   return (
     <html
       lang="en"
@@ -50,9 +53,9 @@ export default function RootLayout({
       style={{ "--page-bg": `url(${cityLights.src})` } as React.CSSProperties}
     >
       <body>
-        <Header site={site} />
+        {header && <Header {...header} />}
         {children}
-        <Footer site={site} />
+        {footer && <Footer {...footer} />}
       </body>
     </html>
   );

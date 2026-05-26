@@ -4,19 +4,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "@/components/Logo";
-import SocialLinks from "@/components/layout/SocialLinks";
-import { navLinks } from "@/data/content";
 import { useActiveSection } from "@/hooks/useActiveSection";
-import type { Site } from "@/types/content";
 import { cn } from "@/lib/utils";
+import type { HeaderProps } from "@/types/strapi";
+import { StrapiImage } from "../StrapiImage";
 
 const headerSections = ["intro", "about", "skills", "projects", "contact"];
 
-type HeaderProps = {
-  site: Site;
-};
-
-export default function Header({ site }: HeaderProps) {
+export default function Header({
+  id,
+  logo,
+  navigation,
+  callToAction,
+}: HeaderProps) {
   const [open, setOpen] = useState(false);
   const active = useActiveSection(headerSections);
 
@@ -25,21 +25,28 @@ export default function Header({ site }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 flex h-[100px] items-center justify-between bg-header px-8 md:px-[70px]">
       <a href="#intro" className="flex shrink-0 text-primary" aria-label="Home">
-        <Logo width={60} height={60} />
+        {/* <Logo width={60} height={60} /> */}
+        <StrapiImage
+          src={logo.image?.url ?? ""}
+          alt={logo.image?.alternativeText ?? ""}
+          width={60}
+          height={60}
+          className="w-16 h-16"
+        />
       </a>
 
       <nav className="hidden sm:block" aria-label="Main">
         <ul className="flex gap-8">
-          {navLinks.map((link) => (
-            <li key={link.id} className="list-none">
+          {navigation?.map((nav) => (
+            <li key={nav.id} className="list-none">
               <a
-                href={link.href}
+                href={nav.href}
                 className={cn(
                   "font-condensed text-lg transition-colors hover:text-main",
-                  active === link.id && "text-main",
+                  active === nav.href.slice(1) && "text-main",
                 )}
               >
-                {link.label}
+                {nav.text}
               </a>
             </li>
           ))}
@@ -71,23 +78,25 @@ export default function Header({ site }: HeaderProps) {
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
               className="absolute right-0 top-0 flex h-full w-[min(320px,85vw)] flex-col gap-8 bg-header px-10 py-24"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                e.stopPropagation();
+                close();
+              }}
               aria-label="Mobile"
             >
               <ul className="flex flex-col gap-6">
-                {navLinks.map((link) => (
-                  <li key={link.id} className="list-none">
+                {navigation?.map((nav) => (
+                  <li key={nav.id} className="list-none">
                     <a
-                      href={link.href}
+                      href={nav.href}
                       onClick={close}
                       className="font-condensed text-2xl uppercase tracking-wide text-light hover:text-main"
                     >
-                      {link.label}
+                      {nav.text}
                     </a>
                   </li>
                 ))}
               </ul>
-              <SocialLinks site={site} variant="light" className="mt-auto" />
             </motion.nav>
           </motion.div>
         )}

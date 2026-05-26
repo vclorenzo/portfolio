@@ -95,8 +95,32 @@ export interface ElementsLogo extends Struct.ComponentSchema {
     displayName: 'Logo';
   };
   attributes: {
+    href: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     logoText: Schema.Attribute.String;
+  };
+}
+
+export interface LayoutFooter extends Struct.ComponentSchema {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'Footer';
+  };
+  attributes: {
+    copyright: Schema.Attribute.String;
+    socials: Schema.Attribute.Component<'elements.link', true>;
+  };
+}
+
+export interface LayoutHeader extends Struct.ComponentSchema {
+  collectionName: 'components_layout_headers';
+  info: {
+    displayName: 'Header';
+  };
+  attributes: {
+    callToAction: Schema.Attribute.Component<'elements.actions', false>;
+    logo: Schema.Attribute.Component<'elements.logo', false>;
+    navigation: Schema.Attribute.Component<'elements.link', true>;
   };
 }
 
@@ -111,6 +135,8 @@ declare module '@strapi/strapi' {
       'elements.collection': ElementsCollection;
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
+      'layout.footer': LayoutFooter;
+      'layout.header': LayoutHeader;
     }
   }
 }

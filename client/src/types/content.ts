@@ -27,7 +27,7 @@ export type Project = {
 };
 
 export type SkillCategoryLabel = {
-  id: string;
+  id?: string;
   type: SkillCategory;
   label: string;
   iconKey: string;

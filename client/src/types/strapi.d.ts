@@ -17,9 +17,32 @@ export interface ImageProps {
 }
 
 export interface LogoProps {
+  id?: number;
   logoText: string;
   image: ImageProps;
+  href: string;
 }
+
+export interface HeaderProps {
+  id: number;
+  logo: LogoProps;
+  navigation: LinkProps[];
+  callToAction: LinkProps | null;
+}
+
+export interface FooterProps {
+  id: number;
+  socials: LinkProps[];
+  copyright: string;
+}
+
+// export interface GlobalResponse {
+//   data: {
+//     title?: string;
+//     description?: string;
+//     header: HeaderProps;
+//   };
+// }
 
 // export interface ArticleProps {
 //   id: number;

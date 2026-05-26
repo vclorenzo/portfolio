@@ -1,9 +1,9 @@
 import { projects, site, skillCategories, skills } from "@/data/content";
-import type { Project, Site, Skill, SkillCategoryLabel } from "@/types/content";
+import type { Project, Site, SkillCategoryLabel } from "@/types/content";
 
 export type PortfolioContent = {
   site: Site;
-  skills: Skill[];
+  skills: SkillCategoryLabel[];
   projects: Project[];
   skillCategories: SkillCategoryLabel[];
 };

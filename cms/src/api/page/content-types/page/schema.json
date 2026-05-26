@@ -10,5 +10,20 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "test": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.skills",
+        "blocks.hero-section",
+        "blocks.dynamic-section"
+      ]
+    }
+  }
 }

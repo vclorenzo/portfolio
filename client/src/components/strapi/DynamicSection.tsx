@@ -6,7 +6,7 @@ import Link from "next/link";
 import manAnimation from "@/assets/man.json";
 import blobScene from "@/assets/svg/blob-scene-haikei.svg";
 import FadeIn from "@/components/motion/FadeIn";
-import SocialLinks from "@/components/layout/SocialLinks";
+import SocialLinks from "@/components/SocialLinks";
 import type { Site } from "@/types/content";
 import { DynamicSectionProps } from "@/types/strapi";
 import { StrapiImage } from "../StrapiImage";

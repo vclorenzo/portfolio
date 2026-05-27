@@ -22,6 +22,36 @@ const articleQuery = () =>
     },
   );
 
+const allProjectIdsQuery = qs.stringify(
+  {
+    fields: ["documentId"],
+    pagination: {
+      pageSize: 100,
+    },
+  },
+  { encodeValuesOnly: true },
+);
+
+export async function fetchAllProjectIds(): Promise<string[]> {
+  try {
+    const path = "/api/projects";
+    const BASE_URL = getStrapiURL();
+
+    const url = new URL(path, BASE_URL);
+    url.search = allProjectIdsQuery;
+    const response = await fetchAPI(url.href, { method: "GET" });
+
+    const projects = response.data ?? [];
+    if (!Array.isArray(projects)) return [];
+
+    return projects
+      .map((project: { documentId?: string }) => project.documentId)
+      .filter((id): id is string => Boolean(id));
+  } catch {
+    return [];
+  }
+}
+
 export async function useArticle(documentId: string) {
   const path = `/api/projects/${documentId}`;
   const BASE_URL = getStrapiURL();

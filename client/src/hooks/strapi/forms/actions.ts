@@ -1,5 +1,3 @@
-"use server";
-
 import { fetchAPI } from "@/lib/api/fetch-api";
 import { getStrapiURL } from "@/lib/api/get-strapi-url";
 import { contactSchema } from "@/schema/zodSchema";

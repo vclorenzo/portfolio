@@ -30,19 +30,23 @@ const dynamicPageQuery = (slug: string) =>
   );
 
 export async function fetchAllPageSlugs(): Promise<string[]> {
-  const path = "/api/pages";
-  const BASE_URL = getStrapiURL();
+  try {
+    const path = "/api/pages";
+    const BASE_URL = getStrapiURL();
 
-  const url = new URL(path, BASE_URL);
-  url.search = allPageSlugsQuery;
-  const response = await fetchAPI(url.href, { method: "GET" });
+    const url = new URL(path, BASE_URL);
+    url.search = allPageSlugsQuery;
+    const response = await fetchAPI(url.href, { method: "GET" });
 
-  const pages = response.data ?? [];
-  if (!Array.isArray(pages)) return [];
+    const pages = response.data ?? [];
+    if (!Array.isArray(pages)) return [];
 
-  return pages
-    .map((page: { slug?: string }) => page.slug)
-    .filter((slug): slug is string => Boolean(slug));
+    return pages
+      .map((page: { slug?: string }) => page.slug)
+      .filter((slug): slug is string => Boolean(slug));
+  } catch {
+    return [];
+  }
 }
 
 export async function usePageBySlug(slug: string) {

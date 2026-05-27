@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_articles",
+  "info": {
+    "displayName": "Article"
+  },
+  "options": {},
+  "attributes": {
+    "projects": {
+      "type": "component",
+      "component": "elements.image-rich-text",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

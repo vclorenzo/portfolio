@@ -18,6 +18,9 @@
     },
     "buttonName": {
       "type": "string"
+    },
+    "lottieFile": {
+      "type": "json"
     }
   },
   "config": {}

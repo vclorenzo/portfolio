@@ -23,6 +23,7 @@ export default function DynamicSection({
   bgImage,
   socials,
   callToAction,
+  lottieFile,
 }: DynamicSectionProps) {
   const { url, alternativeText } = bgImage || {};
   const { text, href, isExternal } = callToAction || {};
@@ -46,7 +47,7 @@ export default function DynamicSection({
       )}
       <div className="relative z-10 mx-auto grid max-w-content items-center gap-12 px-5 lg:grid-cols-2 lg:gap-16">
         <FadeIn className="mx-auto w-full max-w-md">
-          <Lottie animationData={manAnimation} loop />
+          <Lottie animationData={lottieFile} loop />
         </FadeIn>
 
         <FadeIn delay={0.15} className="flex flex-col gap-12 p-5">

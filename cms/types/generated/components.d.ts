@@ -1,5 +1,15 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksArticle extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_articles';
+  info: {
+    displayName: 'Article';
+  };
+  attributes: {
+    projects: Schema.Attribute.Component<'elements.image-rich-text', true>;
+  };
+}
+
 export interface BlocksContactForm extends Struct.ComponentSchema {
   collectionName: 'components_blocks_contact_forms';
   info: {
@@ -9,6 +19,7 @@ export interface BlocksContactForm extends Struct.ComponentSchema {
     buttonName: Schema.Attribute.String;
     formFields: Schema.Attribute.Component<'elements.fields', true>;
     greeting: Schema.Attribute.String;
+    lottieFile: Schema.Attribute.JSON;
     message: Schema.Attribute.String;
   };
 }
@@ -24,6 +35,7 @@ export interface BlocksDynamicSection extends Struct.ComponentSchema {
     content: Schema.Attribute.RichText;
     image: Schema.Attribute.Media<'images'>;
     imagePosition: Schema.Attribute.Enumeration<['left', 'right']>;
+    lottieFile: Schema.Attribute.JSON;
     socials: Schema.Attribute.Component<'elements.link', true>;
     title: Schema.Attribute.String;
   };
@@ -119,6 +131,28 @@ export interface ElementsFields extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsImageRichText extends Struct.ComponentSchema {
+  collectionName: 'components_elements_image_rich_texts';
+  info: {
+    displayName: 'ImageRichText';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface ElementsKeyValue extends Struct.ComponentSchema {
+  collectionName: 'components_elements_key_values';
+  info: {
+    displayName: 'KeyValue';
+  };
+  attributes: {
+    key: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsLink extends Struct.ComponentSchema {
   collectionName: 'components_elements_links';
   info: {
@@ -169,6 +203,7 @@ export interface LayoutHeader extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.article': BlocksArticle;
       'blocks.contact-form': BlocksContactForm;
       'blocks.dynamic-section': BlocksDynamicSection;
       'blocks.hero-section': BlocksHeroSection;
@@ -178,6 +213,8 @@ declare module '@strapi/strapi' {
       'elements.category': ElementsCategory;
       'elements.collection': ElementsCollection;
       'elements.fields': ElementsFields;
+      'elements.image-rich-text': ElementsImageRichText;
+      'elements.key-value': ElementsKeyValue;
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
       'layout.footer': LayoutFooter;

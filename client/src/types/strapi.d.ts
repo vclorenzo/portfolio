@@ -134,6 +134,7 @@ export interface DynamicSectionProps extends Base<"blocks.info-block"> {
   socials: LinkProps[];
   image: ImageProps;
   callToAction?: LinkProps;
+  lottieFile: any;
 }
 
 // export interface FeaturedArticleProps extends Base<"blocks.featured-article"> {

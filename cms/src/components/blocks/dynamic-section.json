@@ -43,6 +43,9 @@
       "type": "component",
       "component": "elements.actions",
       "repeatable": false
+    },
+    "lottieFile": {
+      "type": "json"
     }
   },
   "config": {}

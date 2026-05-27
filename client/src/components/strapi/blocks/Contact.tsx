@@ -16,6 +16,7 @@ type ContactForm = {
   message: string;
   buttonName: string;
   formFields: ContactFormProps[];
+  lottieFile: any;
 };
 
 function getContactFormData(formData: FormData) {
@@ -64,6 +65,7 @@ export default function Contact({
   message,
   buttonName,
   formFields,
+  lottieFile,
 }: ContactForm) {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
@@ -276,7 +278,7 @@ export default function Contact({
         </FadeIn>
 
         <FadeIn delay={0.2} className="mx-auto w-full max-w-md">
-          <Lottie animationData={mailAnimation} loop />
+          <Lottie animationData={lottieFile} loop />
         </FadeIn>
       </div>
     </section>

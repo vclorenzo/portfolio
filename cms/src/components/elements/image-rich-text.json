@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_elements_image_rich_texts",
+  "info": {
+    "displayName": "ImageRichText"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "content": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

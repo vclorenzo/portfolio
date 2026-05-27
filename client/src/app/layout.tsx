@@ -7,7 +7,7 @@ import { BASE_PATH } from "@/constants/basepath";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { useGlobal } from "@/hooks/strapi/global/useGlobal";
+import { getGlobal } from "@/hooks/strapi/global/useGlobal";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -42,7 +42,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { data } = await useGlobal();
+  const { data } = await getGlobal();
   const header = data?.header;
   const footer = data?.footer;
 

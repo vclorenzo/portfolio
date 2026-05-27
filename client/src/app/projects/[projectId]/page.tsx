@@ -1,6 +1,6 @@
 import { BlockBuilder } from "@/components/strapi/custom/BlockBuilder";
-import { usePageBySlug } from "@/hooks/strapi/usePageBySlug";
-import { fetchAllProjectIds, useArticle } from "@/hooks/useProjects";
+import { getPageBySlug } from "@/hooks/strapi/usePageBySlug";
+import { fetchAllProjectIds, getArticle } from "@/hooks/useProjects";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -14,9 +14,9 @@ export default async function ProjectsPage({
   params: Promise<{ projectId: string }>;
 }) {
   const { projectId } = await params;
-  const articleData = await useArticle(projectId);
+  const articleData = await getArticle(projectId);
 
-  const pageData = await usePageBySlug("projects");
+  const pageData = await getPageBySlug("projects");
   const page = Array.isArray(pageData.data) ? pageData.data[0] : pageData.data;
   const blocks = page?.blocks || [];
 

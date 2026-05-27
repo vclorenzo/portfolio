@@ -25,7 +25,7 @@ const globalSettingQuery = qs.stringify(
     encodeValuesOnly: true,
   },
 );
-export async function useGlobal() {
+export async function getGlobal() {
   const path = "/api/global";
   const BASE_URL = getStrapiURL();
 

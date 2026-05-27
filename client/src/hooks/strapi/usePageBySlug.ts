@@ -49,7 +49,7 @@ export async function fetchAllPageSlugs(): Promise<string[]> {
   }
 }
 
-export async function usePageBySlug(slug: string) {
+export async function getPageBySlug(slug: string) {
   const path = "/api/pages";
   const BASE_URL = getStrapiURL();
 

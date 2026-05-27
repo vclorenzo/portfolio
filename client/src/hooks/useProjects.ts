@@ -52,7 +52,7 @@ export async function fetchAllProjectIds(): Promise<string[]> {
   }
 }
 
-export async function useArticle(documentId: string) {
+export async function getArticle(documentId: string) {
   const path = `/api/projects/${documentId}`;
   const BASE_URL = getStrapiURL();
 

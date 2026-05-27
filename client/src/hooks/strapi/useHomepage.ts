@@ -11,7 +11,7 @@ const homePageQuery = qs.stringify({
   },
 });
 
-export async function useHomepage() {
+export async function getHomepage() {
   const path = "/api/home-page";
   const BASE_URL = getStrapiURL();
 

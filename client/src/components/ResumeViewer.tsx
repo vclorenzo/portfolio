@@ -1,7 +1,4 @@
-import { BASE_PATH } from "@/constants/basepath";
-
-/** Served from `public/resume/` — reliable with `output: "export"` */
-const resumeUrl = `${BASE_PATH}/resume/Resume_Vanz_Lorenzo.pdf`;
+const resumeUrl = "/resume/Resume_Vanz_Lorenzo.pdf";
 
 export default function ResumeViewer() {
   return (

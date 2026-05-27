@@ -3,7 +3,6 @@ import { Lora, Roboto_Condensed } from "next/font/google";
 import cityLights from "@/assets/CityLights.jpg";
 
 import "./globals.css";
-import { BASE_PATH } from "@/constants/basepath";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -28,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: `Portfolio | Vanz Lorenzo`,
     description: "vanz's portfolio",
     icons: {
-      icon: `${BASE_PATH}/favicon.ico`,
+      icon: "/favicon.ico",
     },
   };
 }

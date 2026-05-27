@@ -8,9 +8,10 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 import type { HeaderProps } from "@/types/strapi";
 import { StrapiImage } from "../strapi/custom/StrapiImage";
-import { BASE_PATH } from "@/constants/basepath";
 
 const headerSections = ["intro", "about", "skills", "projects", "contact"];
+const getNavHref = (href: string) =>
+  href.startsWith("/") || href.startsWith("#") ? href : `/${href}`;
 
 export default function Header({
   id,
@@ -41,7 +42,7 @@ export default function Header({
           {navigation?.map((nav) => (
             <li key={nav.id} className="list-none">
               <a
-                href={`${BASE_PATH}/${nav.href}`}
+                href={getNavHref(nav.href)}
                 className={cn(
                   "font-condensed text-lg transition-colors hover:text-main",
                   active === nav.href.slice(1) && "text-main",
@@ -89,7 +90,7 @@ export default function Header({
                 {navigation?.map((nav) => (
                   <li key={nav.id} className="list-none">
                     <a
-                      href={`${BASE_PATH}/${nav.href}`}
+                      href={getNavHref(nav.href)}
                       onClick={close}
                       className="font-condensed text-2xl uppercase tracking-wide text-light hover:text-main"
                     >

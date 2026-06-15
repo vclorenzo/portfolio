@@ -1,4 +1,8 @@
 import { fetchAPI } from "@/lib/api/fetch-api";
+import {
+  STRAPI_REVALIDATE_SECONDS,
+  STRAPI_TAGS,
+} from "@/lib/api/cache-tags";
 import { getStrapiURL } from "@/lib/api/get-strapi-url";
 import qs from "qs";
 
@@ -39,7 +43,13 @@ export async function fetchAllProjectIds(): Promise<string[]> {
 
     const url = new URL(path, BASE_URL);
     url.search = allProjectIdsQuery;
-    const response = await fetchAPI(url.href, { method: "GET" });
+    const response = await fetchAPI(url.href, {
+      method: "GET",
+      next: {
+        tags: [STRAPI_TAGS.projects],
+        revalidate: STRAPI_REVALIDATE_SECONDS,
+      },
+    });
 
     const projects = response.data ?? [];
     if (!Array.isArray(projects)) return [];
@@ -60,6 +70,10 @@ export async function getArticle(documentId: string) {
   url.search = articleQuery();
   const response = await fetchAPI(url.href, {
     method: "GET",
+    next: {
+      tags: [STRAPI_TAGS.projects, `strapi:project:${documentId}`],
+      revalidate: STRAPI_REVALIDATE_SECONDS,
+    },
   });
   return response;
 }

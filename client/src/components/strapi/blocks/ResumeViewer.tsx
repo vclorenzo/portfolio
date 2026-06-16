@@ -15,7 +15,7 @@ export default function ResumeViewer({
 
   return (
     // <div className="fixed inset-x-0 bottom-0 top-header z-40 bg-dark">
-    <div className="relative top-[60px] h-screen top-header bg-dark">
+    <div className="relative top-[65px] h-screen top-header bg-dark">
       <iframe
         title={title ?? "Resume"}
         src={pdfUrl}

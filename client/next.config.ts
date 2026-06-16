@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 
-const strapiUrl =
-  process.env.STRAPI_URL ?? process.env.STRAPI_URL ?? "http://localhost:1337";
+const strapiUrl = process.env.STRAPI_API_URL ?? "http://localhost:1337";
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname, ".."),

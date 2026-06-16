@@ -55,6 +55,17 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksResumeViewer extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_resume_viewers';
+  info: {
+    displayName: 'Resume Viewer';
+  };
+  attributes: {
+    pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksShowcase extends Struct.ComponentSchema {
   collectionName: 'components_blocks_showcases';
   info: {
@@ -207,6 +218,7 @@ declare module '@strapi/strapi' {
       'blocks.contact-form': BlocksContactForm;
       'blocks.dynamic-section': BlocksDynamicSection;
       'blocks.hero-section': BlocksHeroSection;
+      'blocks.resume-viewer': BlocksResumeViewer;
       'blocks.showcase': BlocksShowcase;
       'blocks.skills': BlocksSkills;
       'elements.actions': ElementsActions;

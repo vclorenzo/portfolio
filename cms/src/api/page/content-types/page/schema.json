@@ -22,7 +22,8 @@
       "components": [
         "blocks.skills",
         "blocks.hero-section",
-        "blocks.dynamic-section"
+        "blocks.dynamic-section",
+        "blocks.resume-viewer"
       ]
     }
   }

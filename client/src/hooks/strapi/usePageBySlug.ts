@@ -61,7 +61,8 @@ export async function getPageBySlug(slug: string) {
   const BASE_URL = getStrapiURL();
 
   const url = new URL(path, BASE_URL);
-  url.search = dynamicPageQuery(slug);
+  url.searchParams.append("filters[slug][$eq]", slug);
+  url.searchParams.append("populate[blocks][populate]", "*");
   const response = await fetchAPI(url.href, {
     method: "GET",
     next: {

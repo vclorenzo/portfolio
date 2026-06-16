@@ -4,6 +4,7 @@ import Skills from "../Skills";
 import Contact from "../blocks/Contact";
 import Projects from "../blocks/Projects";
 import { Block } from "@/types/strapi";
+import ResumeViewer from "../blocks/ResumeViewer";
 
 function blockBuilder(block: Block, index: number) {
   switch (block.__component) {
@@ -17,8 +18,8 @@ function blockBuilder(block: Block, index: number) {
       return <Projects {...block} key={index} />;
     case "blocks.contact-form":
       return <Contact {...block} key={index} />;
-    // case "blocks.heading":
-    //   return <Heading {...block} key={index} />;
+    case "blocks.resume-viewer":
+      return <ResumeViewer {...block} key={index} />;
     // case "blocks.paragraph-with-image":
     //   return <ParagraphWithImage {...block} key={index} />;
     // case "blocks.paragraph":

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_blocks_resume_viewers",
+  "info": {
+    "displayName": "Resume Viewer"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "pdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

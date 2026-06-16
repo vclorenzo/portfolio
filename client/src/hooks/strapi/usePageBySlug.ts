@@ -2,6 +2,7 @@ import { fetchAPI } from "@/lib/api/fetch-api";
 import { STRAPI_FETCH_CACHE, STRAPI_TAGS } from "@/lib/api/cache-tags";
 import { getStrapiURL } from "@/lib/api/get-strapi-url";
 import qs from "qs";
+import { cache } from "react";
 
 const allPageSlugsQuery = qs.stringify(
   {
@@ -56,7 +57,7 @@ export async function fetchAllPageSlugs(): Promise<string[]> {
   }
 }
 
-export async function getPageBySlug(slug: string) {
+export const getPageBySlug = cache(async (slug: string) => {
   const path = "/api/pages";
   const BASE_URL = getStrapiURL();
 
@@ -71,4 +72,4 @@ export async function getPageBySlug(slug: string) {
     },
   });
   return response;
-}
+});

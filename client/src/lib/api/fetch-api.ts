@@ -22,8 +22,13 @@ export class StrapiFetchError extends Error {
   }
 }
 
-const STRAPI_FETCH_RETRIES = 2;
-const STRAPI_FETCH_RETRY_DELAY_MS = 1500;
+const STRAPI_FETCH_RETRIES = 4;
+const STRAPI_FETCH_RETRY_DELAY_MS = 2000;
+const RETRYABLE_STATUS_CODES = new Set([429, 502, 503, 504]);
+
+function retryDelayMs(attempt: number) {
+  return STRAPI_FETCH_RETRY_DELAY_MS * (attempt + 1);
+}
 
 async function fetchWithRetry(
   url: string,
@@ -31,18 +36,33 @@ async function fetchWithRetry(
   retries = STRAPI_FETCH_RETRIES,
 ): Promise<Response> {
   let lastError: unknown;
+  let lastRetryableResponse: Response | undefined;
 
   for (let attempt = 0; attempt <= retries; attempt += 1) {
     try {
-      return await fetch(url, init);
+      const response = await fetch(url, init);
+
+      if (RETRYABLE_STATUS_CODES.has(response.status) && attempt < retries) {
+        lastRetryableResponse = response;
+        await new Promise((resolve) =>
+          setTimeout(resolve, retryDelayMs(attempt)),
+        );
+        continue;
+      }
+
+      return response;
     } catch (error) {
       lastError = error;
       if (attempt < retries) {
         await new Promise((resolve) =>
-          setTimeout(resolve, STRAPI_FETCH_RETRY_DELAY_MS * (attempt + 1)),
+          setTimeout(resolve, retryDelayMs(attempt)),
         );
       }
     }
+  }
+
+  if (lastRetryableResponse) {
+    return lastRetryableResponse;
   }
 
   throw lastError;

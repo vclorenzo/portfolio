@@ -29,7 +29,7 @@ export default function Header({
   const close = () => setOpen(false);
 
   return (
-    <header className="fixed w-full top-0 z-[100] flex h-header items-center justify-between bg-header px-8 md:px-[70px]">
+    <header className="fixed w-full top-0 z-[100] flex h-100px items-center justify-between bg-header px-8 md:px-[70px]">
       <Link
         href="/#intro"
         className="flex shrink-0 text-primary"

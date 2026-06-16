@@ -27,15 +27,20 @@ export function getStrapiMedia(url: string | null) {
   return getStrapiURL() + url;
 }
 
-/** Same-origin path for embeddable media (iframes). Proxied via next.config rewrites. */
+/**
+ * URL for embeddable media (iframes).
+ * Local `/uploads/` paths are same-origin and proxied via next.config rewrites.
+ * Strapi Cloud CDN URLs are returned as-is (full absolute URL).
+ */
 export function getStrapiProxiedMedia(url: string | null) {
   if (url == null) return null;
   if (url.startsWith("/uploads/")) return url;
 
   if (url.startsWith("http") || url.startsWith("//")) {
     try {
-      const pathname = new URL(url).pathname;
-      if (pathname.startsWith("/uploads/")) return pathname;
+      const parsed = new URL(url, url.startsWith("//") ? "https:" : undefined);
+      if (parsed.pathname.startsWith("/uploads/")) return parsed.pathname;
+      return parsed.href;
     } catch {
       return null;
     }

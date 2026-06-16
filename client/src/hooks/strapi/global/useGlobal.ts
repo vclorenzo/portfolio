@@ -1,8 +1,5 @@
 import { fetchAPI } from "@/lib/api/fetch-api";
-import {
-  STRAPI_REVALIDATE_SECONDS,
-  STRAPI_TAGS,
-} from "@/lib/api/cache-tags";
+import { STRAPI_FETCH_CACHE, STRAPI_TAGS } from "@/lib/api/cache-tags";
 import { getStrapiURL } from "@/lib/api/get-strapi-url";
 import qs from "qs";
 
@@ -38,8 +35,8 @@ export async function getGlobal() {
   const response = await fetchAPI(url.href, {
     method: "GET",
     next: {
+      ...STRAPI_FETCH_CACHE,
       tags: [STRAPI_TAGS.global],
-      revalidate: STRAPI_REVALIDATE_SECONDS,
     },
   });
   return response;

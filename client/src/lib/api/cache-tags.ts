@@ -5,5 +5,11 @@ export const STRAPI_TAGS = {
   projects: "strapi:projects",
 } as const;
 
-/** Fallback TTL when a webhook does not fire (seconds). */
-export const STRAPI_REVALIDATE_SECONDS = 3600;
+/**
+ * Keep Strapi data cached until a webhook calls revalidateTag.
+ * Do not use a time-based TTL — background revalidation can fail when
+ * Strapi Cloud is slow, and a silent empty response would wipe the page.
+ */
+export const STRAPI_FETCH_CACHE = {
+  revalidate: false,
+} as const;

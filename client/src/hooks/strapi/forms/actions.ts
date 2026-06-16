@@ -29,6 +29,7 @@ export async function sendContactForm(
 
   const response = await fetchAPI(url, {
     method: "POST",
+    throwOnError: false,
     body: {
       data: { name, email, subject, message },
     },

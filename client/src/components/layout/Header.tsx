@@ -1,17 +1,21 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
-import Logo from "@/components/Logo";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 import type { HeaderProps } from "@/types/strapi";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { StrapiImage } from "../strapi/custom/StrapiImage";
 
 const headerSections = ["intro", "about", "skills", "projects", "contact"];
-const getNavHref = (href: string) =>
-  href.startsWith("/") || href.startsWith("#") ? href : `/${href}`;
+const getSectionId = (href: string) => href.replace(/^[#/]+/, "");
+const getNavHref = (href: string) => {
+  if (href.startsWith("#")) return `/${href}`;
+  if (href.startsWith("/")) return href;
+  return `/${href}`;
+};
 
 export default function Header({
   id,
@@ -25,8 +29,12 @@ export default function Header({
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 flex h-[100px] items-center justify-between bg-header px-8 md:px-[70px]">
-      <a href="#intro" className="flex shrink-0 text-primary" aria-label="Home">
+    <header className="fixed w-full top-0 z-[100] flex h-header items-center justify-between bg-header px-8 md:px-[70px]">
+      <Link
+        href="/#intro"
+        className="flex shrink-0 text-primary"
+        aria-label="Home"
+      >
         {/* <Logo width={60} height={60} /> */}
         <StrapiImage
           src={logo.image?.url ?? ""}
@@ -35,21 +43,21 @@ export default function Header({
           height={60}
           className="w-16 h-16"
         />
-      </a>
+      </Link>
 
       <nav className="hidden sm:block" aria-label="Main">
         <ul className="flex gap-8">
           {navigation?.map((nav) => (
             <li key={nav.id} className="list-none">
-              <a
+              <Link
                 href={getNavHref(nav.href)}
                 className={cn(
                   "font-condensed text-lg transition-colors hover:text-main",
-                  active === nav.href.slice(1) && "text-main",
+                  active === getSectionId(nav.href) && "text-main",
                 )}
               >
                 {nav.text}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

@@ -1,9 +1,20 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 
+const strapiUrl =
+  process.env.STRAPI_URL ?? process.env.STRAPI_URL ?? "http://localhost:1337";
+
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname, ".."),
   trailingSlash: true,
+  async rewrites() {
+    return [
+      {
+        source: "/uploads/:path*",
+        destination: `${strapiUrl}/uploads/:path*`,
+      },
+    ];
+  },
   // async redirects() {
   //   return [
   //     {

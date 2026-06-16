@@ -20,6 +20,12 @@ export default {
 			maxWidth: {
 				content: '1176px',
 			},
+			height: {
+				header: 'var(--header-height)',
+			},
+			spacing: {
+				header: 'var(--header-height)',
+			},
 		},
 	},
 	plugins: [],

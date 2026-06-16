@@ -26,3 +26,21 @@ export function getStrapiMedia(url: string | null) {
   if (url.startsWith("http") || url.startsWith("//")) return url;
   return getStrapiURL() + url;
 }
+
+/** Same-origin path for embeddable media (iframes). Proxied via next.config rewrites. */
+export function getStrapiProxiedMedia(url: string | null) {
+  if (url == null) return null;
+  if (url.startsWith("/uploads/")) return url;
+
+  if (url.startsWith("http") || url.startsWith("//")) {
+    try {
+      const pathname = new URL(url).pathname;
+      if (pathname.startsWith("/uploads/")) return pathname;
+    } catch {
+      return null;
+    }
+  }
+
+  if (url.startsWith("uploads/")) return `/${url}`;
+  return url.startsWith("/") ? url : `/${url}`;
+}

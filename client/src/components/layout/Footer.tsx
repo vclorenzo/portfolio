@@ -10,7 +10,7 @@ type FooterProps = {
 
 export default function Footer({ socials, copyright }: FooterProps) {
   return (
-    <footer className="flex min-h-[120px] flex-col items-center justify-center gap-6 bg-dark py-10">
+    <footer className="flex min-h-[120px] relative bottom-0 flex-col items-center justify-center gap-6 bg-dark py-10">
       <SocialLinks socials={socials} theme="light" />
       <p className="font-condensed text-sm text-medium">{copyright}</p>
     </footer>

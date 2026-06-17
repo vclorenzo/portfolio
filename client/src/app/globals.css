@@ -98,7 +98,7 @@
   }
 
   .glass-panel {
-    @apply rounded-2xl border border-light/10 bg-dark/40 p-6 backdrop-blur-md;
+    @apply rounded-2xl border border-dark/10 bg-base/50 p-6 backdrop-blur-md;
   }
 }
 

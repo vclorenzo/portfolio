@@ -57,12 +57,10 @@ export default function DynamicSection({
           </p>
           <div className="flex flex-col items-start gap-4">
             <SocialLinks socials={socials} theme={theme} />
-            <Link
-              href={href ?? ""}
-              target={isExternal ? "_blank" : "_self"}
-              className="btn-dark"
-            >
-              {text}
+            <Link href={href ?? ""} target={isExternal ? "_blank" : "_self"}>
+              <button type="button" className="btn-dark">
+                {text}
+              </button>
             </Link>
           </div>
         </FadeIn>

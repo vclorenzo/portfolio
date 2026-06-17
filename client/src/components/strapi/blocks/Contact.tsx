@@ -144,7 +144,7 @@ export default function Contact({
   };
 
   return (
-    <section id="contact" className="section-pad min-h-[724px] bg-dark">
+    <section id="contact" className="section-pad min-h-[724px] bg-darkless">
       <div className="mx-auto grid max-w-content items-center gap-12 px-5 lg:grid-cols-2">
         <FadeIn className="flex flex-col gap-12 p-5">
           <h2 className="text-5xl text-light md:text-[60px]">{greeting}</h2>

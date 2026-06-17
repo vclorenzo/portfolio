@@ -14,13 +14,12 @@ export default function ResumeViewer({
   }
 
   return (
-    // <div className="fixed inset-x-0 bottom-0 top-header z-40 bg-dark">
-    <div className="relative top-[65px] h-screen top-header bg-dark">
+    <section className="mt-[65px] flex min-h-[724px] h-[calc(100vh-100px)] w-full items-center justify-center overflow-hidden">
       <iframe
         title={title ?? "Resume"}
         src={pdfUrl}
         className="h-full w-full border-0"
       />
-    </div>
+    </section>
   );
 }

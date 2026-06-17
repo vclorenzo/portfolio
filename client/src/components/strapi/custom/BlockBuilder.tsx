@@ -1,6 +1,6 @@
 import HeroSection from "../blocks/HeroSection";
 import DynamicSection from "../blocks/DynamicSection";
-import Skills from "../Skills";
+import Skills from "../blocks/Skills";
 import Contact from "../blocks/Contact";
 import Projects from "../blocks/Projects";
 import { Block } from "@/types/strapi";
